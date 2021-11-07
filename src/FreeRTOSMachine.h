@@ -16,7 +16,7 @@ public:
     virtual void eventFromISR(const StateEvent &event);
     virtual void run(void *pvParameters);
 
-private:
+protected:
     QueueHandle_t _queue;
 };
 
