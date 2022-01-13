@@ -11,13 +11,13 @@ FreeRTOSMachine::~FreeRTOSMachine()
     vQueueDelete(_queue);
 }
 
-void FreeRTOSMachine::event(const StateEvent &event)
+void FreeRTOSMachine::dispatchEvent(const StateEvent &event)
 {
     Serial.printf("Received event %d\n", event.id);
     xQueueSend(_queue, &event, 0);
 }
 
-void FreeRTOSMachine::eventFromISR(const StateEvent &event)
+void FreeRTOSMachine::dispatchEventFromISR(const StateEvent &event)
 {
     xQueueSendFromISR(_queue, &event, 0);
 }
