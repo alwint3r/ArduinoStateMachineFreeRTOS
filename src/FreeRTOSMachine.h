@@ -12,9 +12,9 @@ public:
     FreeRTOSMachine();
     virtual ~FreeRTOSMachine();
 
-    virtual void event(const StateEvent &event);
-    virtual void eventFromISR(const StateEvent &event);
-    virtual void run(void *pvParameters);
+    void event(const StateEvent &event) override;
+    void eventFromISR(const StateEvent &event) override;
+    void run(void *pvParameters) override;
 
 protected:
     QueueHandle_t _queue;
